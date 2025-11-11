@@ -6,10 +6,17 @@ pipeline{
     }
     stages {
         stage('checkout code') {
+            steps {
+                checkout code
+            }
 
         }
         stage('Extract Data') {
-            bat "${env.PYHTON} extract.py"
+            steps {
+                bat "${env.PYHTON} extract.py"
+            }
+            
+            
         }
     }
     post {
