@@ -1,6 +1,7 @@
 pipeline{
     agent any
-    enviroment {
+    
+    environment {
         PYTHON = "C:\\Program Files\\Python310\\python.exe "
 
     }
@@ -13,7 +14,7 @@ pipeline{
         }
         stage('Extract Data') {
             steps {
-                bat "${env.PYHTON} extract.py"
+                bat "${env.PYHTON} extract_data.py"
             }
             
             
