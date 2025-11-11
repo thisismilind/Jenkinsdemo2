@@ -1,7 +1,7 @@
 pipeline{
     agent any
     enviroment {
-        PYTHON = "C:\\Program Files\\Python310\\python.exe extract.py"
+        PYTHON = "C:\\Program Files\\Python310\\python.exe "
 
     }
     stages {
