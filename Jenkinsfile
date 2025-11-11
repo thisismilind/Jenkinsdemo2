@@ -1,49 +1,37 @@
-pipeline {
+pipeline{
     agent any
-
+    
     environment {
-        GIT_REPO = 'https://github.com/thisismilind/Jenkinsdemo2.git'
+        PYTHON = "C:\\Program Files\\Python310\\python.exe "
+
     }
-
     stages {
-        stage('Checkout Code') {
+        stage('checkout code') {
             steps {
-                echo 'Checking out code...'
-                git url: "${GIT_REPO}", branch: 'main'
+                checkout code
             }
-        }
 
+        }
         stage('Extract Data') {
             steps {
-                echo 'Running Extract Data step...'
-                bat 'python extract_data.py'
+                bat "${env.PYHTON} extract_data.py"
             }
-        }
-
-        stage('Transform Data') {
-            steps {
-                echo 'Running Transform Data step...'
-                bat 'python transform_data.py'
-            }
-        }
-
-        stage('Load Data') {
-            steps {
-                echo 'Running Load Data step...'
-                bat 'python load_data.py'
-            }
+            
+            
         }
     }
-
     post {
-        always {
-            echo 'Pipeline completed.'
+        success {
+            echo "success..."
+
         }
         failure {
-            echo 'Pipeline failed.'
+            echo "failure ..."
+
         }
-        success {
-            echo 'Pipeline succeeded!'
+        always {
+            echo "always..."
+
         }
     }
 }
