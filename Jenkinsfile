@@ -1,6 +1,6 @@
 pipeline{
     agent any
-    
+
     environment {
         PYTHON = "C:\\Program Files\\Python310\\python.exe "
 
@@ -8,7 +8,7 @@ pipeline{
     stages {
         stage('checkout code') {
             steps {
-                checkout code
+                checkout scm
             }
 
         }
